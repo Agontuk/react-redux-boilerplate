@@ -24,6 +24,14 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            actions: `${ APP_PATH }/actions`,
+            components: `${ APP_PATH }/components`,
+            containers: `${ APP_PATH }/containers`,
+            reducers: `${ APP_PATH }/reducers`
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: `${ ROOT_PATH }/index.html`

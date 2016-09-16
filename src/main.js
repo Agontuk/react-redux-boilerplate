@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
+import Counter from './containers/counter';
+import store from './store';
+import { Provider } from 'react-redux';
 
-class Hello extends Component {
-    render() {
-        return (
-            <h1>Hello World</h1>
-        );
-    }
-}
-
-render(<Hello />, document.getElementById('root'));
+render(
+    <Provider store={ store }>
+        <Counter />
+    </Provider>,
+    document.getElementById('root')
+);
