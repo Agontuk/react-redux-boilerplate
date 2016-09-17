@@ -1,6 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ROOT_PATH = path.join(__dirname, '..', '..');
 const APP_PATH = `${ ROOT_PATH }/src`;
@@ -16,12 +15,11 @@ module.exports = {
         publicPath: '/build/'
     },
     module: {
+        preLoaders: [
+            { test: /\.js$/, loader: 'eslint', exclude: /node_modules/ }
+        ],
         loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/
-            }
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ }
         ]
     },
     resolve: {
@@ -37,4 +35,7 @@ module.exports = {
             template: `${ ROOT_PATH }/index.html`
         })
     ],
+    devServer: {
+        port: 3000
+    }
 };

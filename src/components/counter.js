@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Counter extends Component {
-    render() {
+    render () {
         const { count, onIncrement } = this.props;
         return (
             <div>
@@ -11,5 +11,10 @@ class Counter extends Component {
         );
     }
 }
+
+Counter.propTypes = {
+    count: PropTypes.number.isRequired,
+    onIncrement: PropTypes.func.isRequired
+};
 
 export default Counter;

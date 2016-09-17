@@ -7,8 +7,8 @@ const makeActionCreator =  (type, ...argNames) => {
         });
 
         return action;
-    }
-}
+    };
+};
 
 // Action Constants
 export const INCREMENT = 'INCREMENT';

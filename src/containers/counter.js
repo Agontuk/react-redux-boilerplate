@@ -5,7 +5,7 @@ import { increment } from 'actions';
 const mapStateToProps = (state) => {
     return {
         count: state.counter.count
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
