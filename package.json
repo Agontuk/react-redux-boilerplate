@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.13.0",
     "html-webpack-plugin": "^2.22.0",
+    "redux-logger": "^2.6.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2"
   }
