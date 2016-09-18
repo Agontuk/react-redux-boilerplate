@@ -1,12 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Counter from './containers/counter';
-import store from './store';
-import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
+import App from './app';
 
+const dom = document.getElementById('root');
 render(
-    <Provider store={ store }>
-        <Counter />
-    </Provider>,
-    document.getElementById('root')
+    <AppContainer>
+        <App />
+    </AppContainer>,
+    dom
 );
+
+if (module.hot) {
+    module.hot.accept('./app', () => {
+        const NextApp = require('./app').default;
+        render(
+            <AppContainer>
+                <NextApp />
+            </AppContainer>,
+            dom
+        );
+    });
+}

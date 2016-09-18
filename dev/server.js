@@ -4,6 +4,7 @@ const config = require('./webpack/dev.conf');
 const port = config.devServer.port;
 
 new WebpackDevServer(webpack(config), {
+    hot: true,
     publicPath: config.output.publicPath,
     stats: { colors: true }
 }).listen(port, 'localhost', function (err) {

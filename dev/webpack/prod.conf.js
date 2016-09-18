@@ -4,7 +4,11 @@ const config = require('./base.conf');
 const { plugins } = config;
 
 module.exports = merge(config, {
+    entry: {
+        'app': `${ config.context }/main`
+    },
     plugins: plugins.concat([
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,

@@ -5,9 +5,7 @@ const ROOT_PATH = path.join(__dirname, '..', '..');
 const APP_PATH = `${ ROOT_PATH }/src`;
 
 module.exports = {
-    entry: {
-        'app': `${ APP_PATH }/main`
-    },
+    context: APP_PATH,
     output: {
         path: `${ ROOT_PATH }/build/`,
         filename: '[name].js',
