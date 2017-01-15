@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Counter = (count, onIncrement) => (
+const Counter = ({ count, onIncrement }) => (
     <div>
         <h1>Count: { count }</h1>
         <button onClick={ onIncrement }>Increment</button>
