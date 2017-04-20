@@ -1,5 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import Reducers from '../reducers';
 
 const logger = createLogger();
