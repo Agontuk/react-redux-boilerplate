@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 import App from './app';
 
+const dom = document.getElementById('root');
 const render = (Component) => {
-    ReactDOM.render(
-        <AppContainer>
-            <Component />
-        </AppContainer>,
-        document.getElementById('root')
-    );
+    if (process.env.NODE_ENV === 'production') {
+        ReactDOM.render(<Component />, dom);
+    } else {
+        // eslint-disable-next-line global-require
+        const AppContainer = require('react-hot-loader').AppContainer;
+        ReactDOM.render(
+            <AppContainer>
+                <Component />
+            </AppContainer>,
+            dom
+        );
+    }
 };
 
 render(App);
