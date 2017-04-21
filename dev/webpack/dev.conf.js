@@ -14,7 +14,7 @@ module.exports = merge(config, {
     plugins: plugins.concat([
         new webpack.HotModuleReplacementPlugin()
     ]),
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     devServer: {
         port: port
     }
