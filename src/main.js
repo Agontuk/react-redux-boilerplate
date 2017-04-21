@@ -1,24 +1,21 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './app';
 
-const dom = document.getElementById('root');
-render(
-    <AppContainer>
-        <App />
-    </AppContainer>,
-    dom
-);
+const render = (Component) => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById('root')
+    );
+};
+
+render(App);
 
 if (module.hot) {
     module.hot.accept('./app', () => {
-        const NextApp = require('./app').default; // eslint-disable-line global-require
-        render(
-            <AppContainer>
-                <NextApp />
-            </AppContainer>,
-            dom
-        );
+        render(App);
     });
 }
