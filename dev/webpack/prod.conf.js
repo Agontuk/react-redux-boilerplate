@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./base.conf');
 const { plugins } = config;
 
@@ -8,6 +9,9 @@ module.exports = merge(config, {
         'app': `${ config.context }/main`
     },
     plugins: plugins.concat([
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -17,8 +21,6 @@ module.exports = merge(config, {
             comments: false,
             sourceMap: false
         }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
-        })
+        new BundleAnalyzerPlugin()
     ])
 });
