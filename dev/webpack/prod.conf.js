@@ -16,11 +16,20 @@ module.exports = merge(config, {
             'process.env.NODE_ENV': '"production"'
         }),
         new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: {
+                screw_ie8: true
+            },
             compress: {
+                screw_ie8: true,
                 warnings: false
             },
             comments: false,
             sourceMap: true
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
         }),
         new BundleAnalyzerPlugin()
     ]),
