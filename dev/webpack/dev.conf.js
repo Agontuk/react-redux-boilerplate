@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const config = require('./base.conf');
 const port = 3000;
 const { plugins } = config;
@@ -12,7 +13,8 @@ module.exports = merge(config, {
         `${ config.context }/main`
     ],
     plugins: plugins.concat([
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new DashboardPlugin()
     ]),
     devtool: 'eval-source-map',
     devServer: {
